@@ -150,6 +150,13 @@ input, select, textarea {
 	h3 {
 		font-size: 1.15em;
 		letter-spacing: 0.025em;
+		padding-top: 1.5em;
+		padding-left: 5em;
+	}
+
+	h4 {
+		font-size: 1.15em;
+		letter-spacing: 0.025em;
 	}
 
 	sub {
@@ -1761,6 +1768,10 @@ input, select, textarea {
 			padding-top: 1.5em;
 		}
 
+		header.special h3 {
+			text-align: center;
+		}
+
 		header.special .icon {
 			cursor: default;
 			height: 7em;
@@ -2038,12 +2049,13 @@ input, select, textarea {
 
 	ul.featured-icons {
 		cursor: default;
-		margin: -0.75em 0 0 0;
-		opacity: 0.35;
+		margin: 0 0 0 0;
+		opacity: 0.4;
 		overflow: hidden;
 		position: relative;
 		list-style: none;
-		padding-left: 0;
+		/* padding-right: 20em; */
+		padding-left: 5em;
 	}
 
 		ul.featured-icons li {
@@ -2204,7 +2216,7 @@ input, select, textarea {
 
 	.wrapper {
 		margin-bottom: 5em;
-		padding: 5em;
+		padding: 1em; 
 	}
 
 		.wrapper.style1 {
@@ -2255,7 +2267,7 @@ input, select, textarea {
 		.wrapper.style4 {
 			background: #fff;
 			color: inherit;
-			padding: 4em;
+			padding: 3em;
 		}
 
 /* Header */

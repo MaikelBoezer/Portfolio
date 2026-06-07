@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Twenty by HTML5 UP</title>
+		<title>Breda Guardians - Play-Smart | Maikel Boezer</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,10 +17,10 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Twenty <span>by HTML5 UP</span></a></h1>
+					<h1 id="logo"><a href="index.html">Maikel Boezer <span>Portfolio</span></a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">Welcome</a></li>
+							<li><a href="index.html">Welcome</a></li>
 							<li class="submenu">
 								<a href="#">Layouts</a>
 								<ul>
@@ -49,9 +49,9 @@
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon solid fa-mobile-alt"></span>
-						<h2>And finally there's <strong>No Sidebar</strong></h2>
-						<p>Where that in the center faces the nameless horrors alone.</p>
+						<span class="icon solid fa-gamepad"></span>
+						<h2>Play-Smart <strong>Esports Analytics</strong></h2>
+						<p>My graduation project at The Hive, the esports lab behind the Breda Guardians.</p>
 					</header>
 
 					<!-- One -->
@@ -60,13 +60,14 @@
 							<!-- Content -->
 								<div class="content">
 									<section>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+										<a href="images/playsmart-architecture.png" class="image featured"><img src="images/playsmart-architecture.png" alt="Play-Smart deployment workflow: institutional forks push to GitHub Actions, which lints, builds and pushes images to Docker Hub, then deploys to the self-hosted queenbee server and a GPU workstation running YOLOv11 inference." /></a>
 										<header>
-											<h3>Dolore Amet Consequat</h3>
+											<h3>Migrating Play-Smart to a version-controlled deployment workflow</h3>
 										</header>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
+										<p>Play-Smart is a multi-modal esports analytics toolkit built at The Hive for the Breda Guardians, in collaboration with Tilburg University and the University of Twente. It collects and processes data from semi-professional VALORANT players - Tobii eye tracking, OpenFace facial action units, keyboard and mouse input, and game recordings - and surfaces it through an analytics dashboard for coaches and researchers.</p>
+										<p>For my graduation project I joined the project as Research Manager. The toolkit used to be moved between machines and institutions by hand on USB drives, which made it hard to reproduce, share and maintain. My work focused on migrating Play-Smart to a version-controlled, automated deployment workflow so the toolkit can be shared and run across all three partner institutions.</p>
+										<p>I containerised the toolkit into a multi-service Docker stack (frontend, backend, data pipeline, YOLOv11 inference and SFTP) running on a self-hosted Ubuntu server. A GitHub Actions pipeline lints, builds and publishes the service images to Docker Hub, and a self-hosted runner deploys them to the server automatically. A custom Git branching strategy keeps the BUas, Tilburg and Twente forks in sync. The diagram above shows how the pieces fit together.</p>
+										<p>To check that the new workflow is an actual improvement and not just a different way of working, I evaluated the migration through a within-subjects usability study that combines the TAM, DORA and SPACE frameworks.</p>
 									</section>
 								</div>
 
@@ -79,14 +80,9 @@
 
 									<section>
 										<header>
-											<h3>This is Something</h3>
+											<h3>Automated CI/CD</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
+										<p>A GitHub Actions pipeline runs on every push to main: Ruff linting, container image builds, and a push to the playsmartbuas registry on Docker Hub. A self-hosted runner then deploys the updated stack to the server, replacing the manual USB steps.</p>
 									</section>
 
 								</div>
@@ -94,14 +90,9 @@
 
 									<section>
 										<header>
-											<h3>Also Something</h3>
+											<h3>Containerised stack</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
+										<p>Every part of the toolkit - frontend, backend, data pipeline, inference and file transfer - runs as its own container, with scheduling handled by supercronic. This makes the toolkit reproducible and straightforward to bring up on a new machine.</p>
 									</section>
 
 								</div>
@@ -109,14 +100,9 @@
 
 									<section>
 										<header>
-											<h3>Probably Something</h3>
+											<h3>Shared branching strategy</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
+										<p>A hybrid Git Flow and GitHub Flow branching model lets BUas, Tilburg and Twente work from their own forks while keeping a single shared upstream, so changes can move between institutions in a controlled, traceable way.</p>
 									</section>
 
 								</div>
@@ -132,12 +118,12 @@
 						<li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>
-						<li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://github.com/maikelboezer" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
 						<li><a href="#" class="icon brands circle fa-dribbble"><span class="label">Dribbble</span></a></li>
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Maikel Boezer</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 
 				</footer>

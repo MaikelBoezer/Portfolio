@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automating green gas quality reporting for Stedin — Maikel Boezer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="brand">
+        <span class="dot"></span>
+        <span>
+          Maikel Boezer
+          <small>data engineering &amp; applied ai</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="../index.html#projects">Work</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="case-hero">
+    <div class="wrap-narrow">
+      <span class="crumb"><a href="../index.html#projects">Work</a> / Internship</span>
+      <h1>Automating green gas quality reporting for Stedin</h1>
+      <p class="dek">A Power BI dashboard and an automated data pipeline that replaced a 6-monthly third-party report with near real-time visibility across 12 feeder locations.</p>
+
+      <div class="meta-strip">
+        <div class="meta-item"><span class="k">Role</span><span class="v">Data Engineer Intern</span></div>
+        <div class="meta-item"><span class="k">Organisation</span><span class="v">Stedin</span></div>
+        <div class="meta-item"><span class="k">Period</span><span class="v">Oct 2024 – Jan 2025</span></div>
+        <div class="meta-item"><span class="k">Scope</span><span class="v">12 locations, NL-wide</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap-narrow">
+      <div class="case-figure">
+        <svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pipeline: TeleControlNet website, RPA download in Python, data cleaning and filtering, SharePoint export, Power BI dashboard.">
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#5fc3b6"></path>
+            </marker>
+          </defs>
+          <g font-family="IBM Plex Mono, monospace" font-size="12">
+            <rect x="10" y="80" width="150" height="56" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="85" y="104" text-anchor="middle" fill="#c7cbc4">TeleControlNet</text>
+            <text x="85" y="120" text-anchor="middle" fill="#8b93a0" font-size="11">3rd-party source</text>
+
+            <path d="M160,108 L200,108" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+
+            <rect x="200" y="80" width="150" height="56" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="275" y="104" text-anchor="middle" fill="#c7cbc4">RPA download</text>
+            <text x="275" y="120" text-anchor="middle" fill="#8b93a0" font-size="11">Python, no usable API</text>
+
+            <path d="M350,108 L390,108" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+
+            <rect x="390" y="80" width="150" height="56" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="465" y="104" text-anchor="middle" fill="#c7cbc4">Clean &amp; filter</text>
+            <text x="465" y="120" text-anchor="middle" fill="#8b93a0" font-size="11">per-location anomalies</text>
+
+            <path d="M540,108 L580,108" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+
+            <rect x="580" y="80" width="150" height="56" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="655" y="104" text-anchor="middle" fill="#c7cbc4">SharePoint export</text>
+            <text x="655" y="120" text-anchor="middle" fill="#8b93a0" font-size="11">executable app</text>
+
+            <path d="M730,108 L770,108" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+
+            <rect x="770" y="70" width="120" height="76" rx="3" fill="#161b22" stroke="#e8a33d" stroke-width="1.5"></rect>
+            <text x="830" y="98" text-anchor="middle" fill="#eceee9">Power BI</text>
+            <text x="830" y="116" text-anchor="middle" fill="#8b93a0" font-size="11">dashboard</text>
+            <text x="830" y="132" text-anchor="middle" fill="#8b93a0" font-size="11">auto-refreshed</text>
+          </g>
+        </svg>
+      </div>
+      <p class="figcap">The automated pipeline: an executable application runs the download, cleaning and filtering steps, and exports straight into the SharePoint folder the dashboard reads from.</p>
+
+      <div class="case-body">
+        <h2>The problem</h2>
+        <p>Stedin's green gas department needed to know when gas quality drifted out of spec — oxygen, CO2, water dew point, pressure, hydrogen sulphide and Wobbe index — and at which of their 12 feeder locations. Before this project, they received a quality report every six months from a third party, and getting anything more current meant downloading and processing the data by hand, location by location, at 15 to 30 minutes each.</p>
+
+        <h2>What I built</h2>
+        <p>The core deliverable was a Power BI dashboard that flags any value that's out of bounds, for how long, and at which location — with a filter for sustained "problem" events, where a value stays out of bounds for three consecutive intervals while the valve is open.</p>
+        <p>Getting data onto that dashboard automatically was the harder half. The data provider, TeleControlNet, had an API, but it couldn't actually export data in a usable format, so I used robotic process automation in Python to mimic the manual download instead. I built that into a standalone executable that downloads, cleans, filters and exports the data straight into a SharePoint folder feeding the dashboard — so my supervisors could refresh the data themselves without touching any code.</p>
+        <p>Cleaning the data surfaced two real findings. One location measured pressure on a different reference standard than the rest of the network — not a fault, just an unlabelled inconsistency, resolved by adjusting the threshold for that location. Three other locations were missing over 90% of their hydrogen sulphide readings, traced back to a provider recording that value on a dynamic interval instead of the fixed one everything else used; in consultation with my supervisors I dropped that column for the affected locations rather than let unreliable data undermine the rest of the dataset.</p>
+
+        <h2>Outcome</h2>
+        <p>The dashboard replaced a 6-monthly external report with a self-service view the department could refresh whenever they needed it, and it was well received when presented to other Dutch gas providers, several of whom were still building the same Wobbe index visual by hand in Excel. I also documented the automation's limitations clearly — it depends on a workaround for a broken API, and there's no alerting yet when a column gets silently dropped — as the concrete next steps for whoever picks this up.</p>
+      </div>
+
+      <div class="stack-block">
+        <h4>Stack</h4>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">Robotic process automation</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Data cleaning</span>
+          <span class="chip">SharePoint</span>
+        </div>
+      </div>
+
+      <nav class="case-nav">
+        <a href="breda-guardians-pipeline.html">
+          <span class="dir">← Previous</span>
+          Turning esports sensor data into a dashboard, from nothing
+        </a>
+        <a class="next" href="play-smart-deployment.html">
+          <span class="dir">Next →</span>
+          Formalising deployment for Play-Smart
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <footer class="site-footer hairline">
+    <div class="wrap">
+      <div class="copyright">© 2026 Maikel Boezer</div>
+      <div class="footer-links">
+        <a href="https://github.com/maikelboezer" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../contact.html">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

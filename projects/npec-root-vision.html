@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Segmenting plant roots for autonomous watering — Maikel Boezer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="brand">
+        <span class="dot"></span>
+        <span>
+          Maikel Boezer
+          <small>data engineering &amp; applied ai</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="../index.html#projects">Work</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="case-hero">
+    <div class="wrap-narrow">
+      <span class="crumb"><a href="../index.html#projects">Work</a> / Coursework project</span>
+      <h1>Segmenting plant roots for autonomous watering</h1>
+      <p class="dek">A U-Net segmentation model that isolates plant roots, maps every root tip, and measures root length — so a robot arm can water each plant exactly where it needs it.</p>
+
+      <div class="meta-strip">
+        <div class="meta-item"><span class="k">Role</span><span class="v">Data Scientist</span></div>
+        <div class="meta-item"><span class="k">Organisation</span><span class="v">NPEC Utrecht / BUas</span></div>
+        <div class="meta-item"><span class="k">Period</span><span class="v">2023–2024</span></div>
+        <div class="meta-item"><span class="k">Model</span><span class="v">U-Net image segmentation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap-narrow">
+      <div class="figure-pair">
+        <div class="case-figure">
+          <img src="../images/before_CV_model.png" alt="Raw camera image of a plant root system before segmentation." />
+        </div>
+        <div class="case-figure">
+          <img src="../images/after_CV_model.png" alt="The same root system after the U-Net model has segmented the roots from the background." />
+        </div>
+      </div>
+      <p class="figcap">Before and after: the raw root image (left) and the U-Net model's segmentation output (right).</p>
+
+      <div class="case-body">
+        <h2>The problem</h2>
+        <p>NPEC needed a way to water experimental plants precisely at the root, rather than broadly across the whole tray. That meant solving three problems in sequence: find the roots in a camera image, work out exactly where each root ends, and get those coordinates to a robot arm that could act on them.</p>
+
+        <h2>What I built</h2>
+        <p>For segmentation I used U-Net, a convolutional neural network built specifically for this kind of task. Rather than processing a whole image at once, U-Net works on segments of it, which keeps the workload — and the runtime — manageable. The model's raw output needed a bit of cleaning up, but it gave me something reliably usable straight away.</p>
+
+        <div class="case-figure">
+          <img src="../images/image_segmentation.png" alt="U-Net image segmentation output isolating the root structure from the background." />
+        </div>
+        <p class="figcap">U-Net segmentation output, isolating root pixels from the background before any further processing.</p>
+
+        <p>With the roots isolated, I skeletonised the image — reducing every root to a single-pixel-wide line — which made it possible to pull out the coordinates of every root's start and end point.</p>
+
+        <div class="figure-pair">
+          <div class="case-figure">
+            <img src="../images/skeletonize_output.png" alt="Skeletonised output turning the segmented roots into single-pixel-wide lines." />
+          </div>
+          <div class="case-figure">
+            <img src="../images/isolated_roots.png" alt="Individually isolated roots after skeletonisation, with the main root separated from lateral roots." />
+          </div>
+        </div>
+        <p class="figcap">Skeletonisation (left) turns each root into a line; from there, individual roots (right) can be isolated and measured separately.</p>
+
+        <p>From the skeleton, I could isolate the main root specifically and calculate its length — the measurement NPEC's researchers actually needed to track plant growth over time.</p>
+
+        <div class="case-figure">
+          <img src="../images/root_length.png" alt="Main root isolated with its measured length plotted against the skeleton." />
+        </div>
+        <p class="figcap">The main root isolated from lateral roots, with its length measured directly from the skeleton.</p>
+
+        <h2>Outcome and limitations</h2>
+        <p>The segmentation and measurement pipeline worked reliably end to end, from raw image to root-tip coordinates and root length. On the robotics side, I got as far as a working simulation of the watering robot moving to the isolated coordinates, but ran out of time to fully automate that final step — a clear, scoped next stage rather than an open question.</p>
+      </div>
+
+      <div class="stack-block">
+        <h4>Stack</h4>
+        <div class="chip-row">
+          <span class="chip">U-Net</span>
+          <span class="chip">Image segmentation</span>
+          <span class="chip">Python</span>
+          <span class="chip">Skeletonisation</span>
+          <span class="chip">Robot simulation</span>
+        </div>
+      </div>
+
+      <nav class="case-nav">
+        <a href="play-smart-deployment.html">
+          <span class="dir">← Previous</span>
+          Formalising deployment for Play-Smart
+        </a>
+        <a class="next" href="breda-guardians-pipeline.html">
+          <span class="dir">Next →</span>
+          Turning esports sensor data into a dashboard
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <footer class="site-footer hairline">
+    <div class="wrap">
+      <div class="copyright">© 2026 Maikel Boezer</div>
+      <div class="footer-links">
+        <a href="https://github.com/maikelboezer" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../contact.html">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

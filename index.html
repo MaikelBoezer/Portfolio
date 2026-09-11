@@ -1,319 +1,254 @@
-<!DOCTYPE HTML>
-<!--
-	Twenty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Portfolio Maikel Boezer</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="index is-preload">
-		<div id="page-wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maikel Boezer — Data Engineering &amp; Applied AI</title>
+  <meta name="description" content="Maikel Boezer — Applied Data Science &amp; AI student and data engineer. Case studies on deployment pipelines, dashboards and computer vision." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<!-- <h1 id="logo"><a href="index.html">porfolio <span>by Maikel Boezer</span></a></h1> -->
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="index.html">Welcome</a></li>
-							<li class="submenu">
-								<a href="#">Layouts</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li class="submenu">
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Dolore Sed</a></li>
-											<li><a href="#">Consequat</a></li>
-											<li><a href="#">Lorem Magna</a></li>
-											<li><a href="#">Sed Magna</a></li>
-											<li><a href="#">Ipsum Nisl</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">
+        <span class="dot"></span>
+        <span>
+          Maikel Boezer
+          <small>data engineering &amp; applied ai</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="index.html#projects">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-			<!-- Banner -->
-				<section id="banner">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Breda, Netherlands</p>
+        <h1>I build the pipelines behind the data.</h1>
+        <p class="lede">Applied Data Science &amp; AI graduate at Breda University of Applied Sciences, currently working as a part-time junior data engineer for the PlaySmart research project. My responsibilities include expanding on my work from my graduation project and expanding the infrastructure for the PlaySmart esports analytics toolkit by adding a ingress engress server and a Nvidia Spark for model inference.</p>
+        <div class="hero-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Docker</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Computer vision</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">See the work</a>
+          <a href="contact.html" class="btn">Get in touch</a>
+        </div>
+      </div>
 
-					<!--
-						".inner" is set up as an inline-block so it automatically expands
-						in both directions to fit whatever's inside it. This means it won't
-						automatically wrap lines, so be sure to use line breaks where
-						appropriate (<br />).
-					-->
-					<div class="inner">
+      <div aria-hidden="true">
+        <svg class="pipeline-diagram" viewBox="0 0 360 580" xmlns="http://www.w3.org/2000/svg">
+          <path class="pipe-line" d="M80,60 L80,120 L140,120 L140,180 L140,240 L80,240 L80,300 L80,360 L140,360 L140,420 L140,480 L80,480 L80,540" />
+          <path class="pipe-line-draw" d="M80,60 L80,120 L140,120 L140,180 L140,240 L80,240 L80,300 L80,360 L140,360 L140,420 L140,480 L80,480 L80,540" />
 
-						<header>
-							<h2>Maikel Boezer</h2>
-						</header>
-						<p><br />This is a porfolio off all my projects so far,<br />
-						   let's see if there is anything intresting!
-						</p>
+          <circle class="node-ring" cx="80" cy="60" r="8"></circle>
+          <text class="node-year" x="100" y="50">2023–24</text>
+          <text class="node-label" x="100" y="66">Root computer vision</text>
+          <text class="node-label" x="100" y="80">NPEC</text>
 
-					</div>
+          <circle class="node-ring" cx="140" cy="180" r="8"></circle>
+          <text class="node-year" x="160" y="170">2024</text>
+          <text class="node-label" x="160" y="186">Sensor-to-dashboard pipeline</text>
+          <text class="node-label" x="160" y="200">The Hive</text>
 
-				</section>
+          <circle class="node-ring" cx="80" cy="300" r="8"></circle>
+          <text class="node-year" x="100" y="290">Feb '25 – Jun '25</text>
+          <text class="node-label" x="100" y="306">Green gas dashboard</text>
+          <text class="node-label" x="100" y="320">Stedin</text>
 
-			<!-- Main -->
-				<article id="main">
+          <circle class="node-ring" cx="140" cy="420" r="8"></circle>
+          <text class="node-year" x="160" y="410">Feb '26 – Jun '26</text>
+          <text class="node-label" x="160" y="426">Deployment pipeline</text>
+          <text class="node-label" x="160" y="440">Graduation project</text>
 
-					<header class="special container">
-						<span class="icon solid fa-id-card"></span>
-						<h2>A little about myself</h2>
-						<p>My name is Maikel Boezer, I am a 3-year AI and applied data science(ADS)<br>
-						   student at Breda University of Applied Science in the Netherlands.<br>
-						   I focus mostly on the data engineering side of things but <br>
-						   am likewise proficient in data science and the analytic side of ADS.</p>
-					</header>
+		  <circle class="node-ring" cx="80" cy="540" r="9" style="stroke:var(--teal)"></circle>
+		  <circle class="node-dot" cx="80" cy="540" r="3.5"></circle>
+          <text class="node-year" x="100" y="530">Sep 2026 - Present</text>
+          <text class="node-label" x="100" y="546">junior data engineer</text>
+          <text class="node-label" x="100" y="560">PlaySmart</text>
+        </svg>
+      </div>
+    </div>
+  </section>
 
-					<!-- One -->
-						<section class="wrapper style2 container special-alt">
-							<div class="row gtr-50">
-								<div class="col-8 col-12-narrower">
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+        <span class="index mono">01</span>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I'm a graduate from the Applied Data Science &amp; AI course at Breda University of Applied Sciences (BUas), currently 
+			working as a junior data engineer for the PlaySmart research project. My work focuses on building and maintaining the infrastructure for the PlaySmart esports analytics toolkit, including an ingress/egress server and a Nvidia Spark for model inference.</p>
+		  <p>My graduation project was
+			doing my graduation internship at <strong>The Hive</strong>, the esports lab behind the Breda Guardians. My thesis is about migrating an analytics toolkit from manual, USB-based deployment to a version-controlled workflow built on GitHub Actions and Docker.</p>
+          <p>Across my projects I keep ending up in the same spot: a process that works, but only by hand, and only for the person who built it. I like doing the part where that gets turned into something automated, documented and shared — a script, a pipeline, a container — that keeps working once I've moved on to the next thing.</p>
+        </div>
+        <div>
+          <div class="skill-group">
+            <h4>Languages &amp; ML</h4>
+            <div class="chip-row">
+              <span class="chip">Python</span>
+              <span class="chip">Machine learning</span>
+              <span class="chip">Deep learning</span>
+              <span class="chip">Computer vision</span>
+              <span class="chip">NLP</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Infrastructure</h4>
+            <div class="chip-row">
+              <span class="chip">Docker</span>
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">CI/CD</span>
+              <span class="chip">Git branching strategy</span>
+              <span class="chip">Linux servers</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Data &amp; dashboards</h4>
+            <div class="chip-row">
+              <span class="chip">Power BI</span>
+              <span class="chip">RPA</span>
+              <span class="chip">Data pipelines</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">SFTP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-									<header>
-										<h3>Now then lets take a look at the projects I have worked on</h3>
-									</header>
-									<!-- <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p> -->
-									<footer>
-										<!-- <ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul> -->
-									</footer>
+  <section id="projects" class="hairline">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <span class="index mono">02</span>
+      </div>
 
-								</div>
-								<div class="col-4 col-12-narrower imp-narrower">
-									
-									<ul class="featured-icons">
-										<!-- <li><span class="icon fa-clock"><span class="label">Feature 1</span></span></li> -->
-										<!-- <li><span class="icon solid fa-volume-up"><span class="label">Feature 2</span></span></li> -->
-										<li><span class="icon solid fa-laptop", style="font-size: 75px;" ><span class="label">Feature 3</span></span></li>
-										<!-- <li><span class="icon solid fa-inbox"><span class="label">Feature 4</span></span></li> -->
-										<!-- <li><span class="icon solid fa-lock"><span class="label">Feature 5</span></span></li> -->
-										<!-- <li><span class="icon solid fa-cog"><span class="label">Feature 6</span></span></li> -->
-									</ul>
+      <div class="project-rail">
 
-								</div>
-							</div>
-						</section>
+        <article class="project-row">
+          <div class="node mono">01</div>
+          <div class="project-body">
+            <h3><a class="title-link" href="projects/npec-root-vision.html">Segmenting plant roots for autonomous watering</a></h3>
+            <div class="meta-strip compact">
+              <div class="meta-item"><span class="k">Period</span><span class="v">2023–2024</span></div>
+              <div class="meta-item"><span class="k">Role</span><span class="v">Data Scientist</span></div>
+              <div class="meta-item"><span class="k">Org</span><span class="v">NPEC Utrecht / BUas</span></div>
+            </div>
+            <p>A U-Net segmentation model to isolate plant roots from camera images, find root-tip coordinates, and measure root length — feeding a robot arm that waters plants at exactly the right point.</p>
+            <div class="stack-row">
+              <span class="chip">U-Net</span>
+              <span class="chip">Image segmentation</span>
+              <span class="chip">Skeletonisation</span>
+            </div>
+            <a class="read-link" href="projects/npec-root-vision.html">Read the case study</a>
+          </div>
+        </article>
 
-					<!-- Two -->
-						<!-- <section class="wrapper style1 container special">
-							<div class="row">
-								<div class="col-4 col-12-narrower">
+        <article class="project-row">
+          <div class="node mono">02</div>
+          <div class="project-body">
+            <h3><a class="title-link" href="projects/breda-guardians-pipeline.html">Turning esports sensor data into a dashboard, from nothing</a></h3>
+            <div class="meta-strip compact">
+              <div class="meta-item"><span class="k">Period</span><span class="v">2024</span></div>
+              <div class="meta-item"><span class="k">Role</span><span class="v">Data Engineer &amp; Analytics Translator</span></div>
+              <div class="meta-item"><span class="k">Org</span><span class="v">The Hive / BUas</span></div>
+            </div>
+            <p>First cohort on a multi-year project for the Breda Guardians. Built the original data collection, storage and automation pipeline — gaze, facial emotion, input and video data flowing into an SFTP + PostgreSQL store and a live dashboard.</p>
+            <div class="stack-row">
+              <span class="chip">Python</span>
+              <span class="chip">Tobii eye tracking</span>
+              <span class="chip">OpenFace</span>
+              <span class="chip">Docker</span>
+              <span class="chip">PostgreSQL</span>
+            </div>
+            <a class="read-link" href="projects/breda-guardians-pipeline.html">Read the case study</a>
+          </div>
+        </article>
 
-									<section>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</section>
+        <article class="project-row">
+          <div class="node mono">03</div>
+          <div class="project-body">
+            <h3><a class="title-link" href="projects/stedin-green-gas.html">Automating green gas quality reporting for Stedin</a></h3>
+            <div class="meta-strip compact">
+              <div class="meta-item"><span class="k">Period</span><span class="v">Oct 2024 – Jan 2025</span></div>
+              <div class="meta-item"><span class="k">Role</span><span class="v">Data Engineer Intern</span></div>
+              <div class="meta-item"><span class="k">Org</span><span class="v">Stedin</span></div>
+            </div>
+            <p>Replaced a manual, 15–30 minute per-location process with an automated pipeline and Power BI dashboard monitoring gas quality across 12 feeder locations, going from a 6-monthly third-party report to near real-time visibility.</p>
+            <div class="stack-row">
+              <span class="chip">Python (RPA)</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">Data cleaning</span>
+              <span class="chip">SharePoint</span>
+            </div>
+            <a class="read-link" href="projects/stedin-green-gas.html">Read the case study</a>
+          </div>
+        </article>
 
-								</div>
-								<div class="col-4 col-12-narrower">
+        <article class="project-row is-current">
+          <div class="node mono">04</div>
+          <div class="project-body">
+            <h3><a class="title-link" href="projects/play-smart-deployment.html">Formalising deployment for the Play-Smart toolkit</a></h3>
+            <div class="meta-strip compact">
+              <div class="meta-item"><span class="k">Period</span><span class="v is-current">2026, graduation project</span></div>
+              <div class="meta-item"><span class="k">Role</span><span class="v">Research Manager &amp; DevOps Lead</span></div>
+              <div class="meta-item"><span class="k">Org</span><span class="v">The Hive, BUas, with Tilburg &amp; Twente</span></div>
+            </div>
+            <p>Migrated the Play-Smart esports analytics toolkit from manual USB deployment to a version-controlled, containerised GitHub Actions workflow, and ran a usability study showing it deployed 2–4× faster and was preferred by every participant.</p>
+            <div class="stack-row">
+              <span class="chip">Docker</span>
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">Git branching strategy</span>
+              <span class="chip">TAM / DORA / SPACE</span>
+            </div>
+            <a class="read-link" href="projects/play-smart-deployment.html">Read the case study</a>
+          </div>
+        </article>
 
-									<section>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</section>
+      </div>
+    </div>
+  </section>
 
-								</div>
-								<div class="col-4 col-12-narrower">
+  <section class="cta hairline">
+    <div class="wrap">
+      <div>
+        <h2>Looking for a data engineer?</h2>
+        <p>I'm finishing my degree in 2026 and open to graduate roles in data engineering and applied AI.</p>
+      </div>
+      <a href="contact.html" class="btn primary">Get in touch</a>
+    </div>
+  </section>
 
-									<section>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</section>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="copyright">© 2026 Maikel Boezer</div>
+      <div class="footer-links">
+        <a href="https://github.com/maikelboezer" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="contact.html">Email</a>
+      </div>
+    </div>
+  </footer>
 
-								</div>
-							</div>
-						</section> -->
-
-					<!-- Three -->
-						<section class="wrapper style3 container special">
-
-							<header class="major">
-								<h2><strong>My projects</strong></h2>
-							</header>
-
-							<div class="row">
-								
-								<div class="col-12-narrower">
-
-									<section>
-										<header>
-											<h4>My latest project</h4>
-										</header>
-										<a href="last-project.html" class="image featured recent"><img src="images/playsmart-architecture.svg" alt="Play-Smart deployment workflow diagram" /></a>
-										<p class="full bar">
-											Play-Smart - my graduation project at The Hive, the esports lab behind the Breda Guardians. I migrated a multi-modal VALORANT analytics toolkit from manual USB deployment to a version-controlled, automated GitHub workflow with a containerised Docker stack and a CI/CD pipeline shared across BUas, Tilburg and Twente.
-										</p>
-										<ul class="buttons">
-											<li><a href="last-project.html" class="button">Find Out More</a></li>
-										</ul>
-										<br></br>
-									</section>
-
-								</div>
-							</div>
-							<div class="row">
-								
-								<div class="col-12-narrower">
-
-									<section>
-										<header>
-											<h4>projects done in the work force</h4>
-										</header>
-										<a href="recent-projects.html" class="image featured recent"><img src="images/test-image-portfolio.png" alt="" /></a>
-										<p class="full bar">
-											Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
-										</p>
-										<ul class="buttons">
-											<li><a href="recent-projects.html" class="button">Find Out More</a></li>
-										</ul>
-										<br></br>
-									</section>
-
-								</div>
-							</div>
-							<div class="row">
-								
-								<div class="col-6 col-12-narrower">
-
-									<section>
-										<header>
-											<h4>A Really Fast Train</h4>
-										</header>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
-										<br></br>
-									</section>
-
-								</div>
-								<div class="col-6 col-12-narrower">
-
-									<section>
-										<header>
-											<h4>An Airport Terminal</h4>
-										</header>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
-
-									</section>
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-6 col-12-narrower">
-
-									<section>
-										<header>
-											<h4>Hyperspace Travel</h4>
-										</header>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
-									</section>
-
-								</div>
-								<div class="col-6 col-12-narrower">
-
-									<section>
-										<header>
-											<h4>And Another Train</h4>
-										</header>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
-									</section>
-
-								</div>
-							</div>
-
-							<footer class="major">
-								<!-- <ul class="buttons">
-									<li><a href="#" class="button">See More</a></li>
-								</ul> -->
-							</footer>
-
-						</section>
-
-				</article>
-
-			<!-- CTA -->
-				<section id="cta">
-
-					<header>
-						<h2>Ready to do <strong>something</strong>?</h2>
-						<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
-					</header>
-					<footer>
-						<ul class="buttons">
-							<li><a href="#" class="button primary">Take My Money</a></li>
-							<li><a href="#" class="button">LOL Wut</a></li>
-						</ul>
-					</footer>
-
-				</section>
-
-			<!-- Footer -->
-				<footer id="footer">
-
-					<ul class="icons">
-						<li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>
-						<li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-					</ul>
-
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-				</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <script src="js/main.js"></script>
+</body>
 </html>

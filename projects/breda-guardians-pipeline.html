@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sensor-to-dashboard pipeline for the Breda Guardians — Maikel Boezer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="brand">
+        <span class="dot"></span>
+        <span>
+          Maikel Boezer
+          <small>data engineering &amp; applied ai</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="../index.html#projects">Work</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="case-hero">
+    <div class="wrap-narrow">
+      <span class="crumb"><a href="../index.html#projects">Work</a> / The Hive</span>
+      <h1>Turning esports sensor data into a dashboard, from nothing</h1>
+      <p class="dek">Building the first data collection, storage and automation pipeline for the Breda Guardians esports analytics project — before there was anything to build on top of.</p>
+
+      <div class="meta-strip">
+        <div class="meta-item"><span class="k">Role</span><span class="v">Data Engineer &amp; Analytics Translator</span></div>
+        <div class="meta-item"><span class="k">Organisation</span><span class="v">The Hive, Breda Guardians (BUas)</span></div>
+        <div class="meta-item"><span class="k">Period</span><span class="v">2024</span></div>
+        <div class="meta-item"><span class="k">Team</span><span class="v">First cohort on a multi-year project</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap-narrow">
+      <div class="case-figure">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data flow diagram: keyboard and mouse, Tobii eye tracker, webcam and OBS feed into a Python collection script, which writes to an SFTP and PostgreSQL store running in Docker, which feeds the dashboard.">
+          <defs>
+            <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#5fc3b6"></path>
+            </marker>
+          </defs>
+
+          <!-- sources -->
+          <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#c7cbc4">
+            <rect x="10" y="14" width="150" height="40" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="85" y="38" text-anchor="middle">Keyboard / mouse</text>
+
+            <rect x="10" y="66" width="150" height="40" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="85" y="90" text-anchor="middle">Tobii eye tracker</text>
+
+            <rect x="10" y="118" width="150" height="40" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="85" y="142" text-anchor="middle">Webcam + OpenFace</text>
+
+            <rect x="10" y="170" width="150" height="40" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+            <text x="85" y="194" text-anchor="middle">OBS video capture</text>
+          </g>
+
+          <path d="M160,34 L230,112" stroke="#2b323c" fill="none"></path>
+          <path d="M160,86 L230,112" stroke="#2b323c" fill="none"></path>
+          <path d="M160,138 L230,112" stroke="#2b323c" fill="none"></path>
+          <path d="M160,190 L230,112" stroke="#2b323c" fill="none"></path>
+
+          <rect x="230" y="90" width="150" height="44" rx="3" fill="#161b22" stroke="#5fc3b6" stroke-width="1.5"></rect>
+          <text x="305" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#eceee9">Python collection</text>
+          <text x="305" y="124" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b93a0">script</text>
+
+          <path d="M380,112 L470,112" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow1)"></path>
+
+          <rect x="470" y="60" width="170" height="104" rx="3" fill="#161b22" stroke="#2b323c"></rect>
+          <text x="555" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b93a0">docker container</text>
+          <rect x="486" y="92" width="138" height="28" rx="3" fill="#1d232c" stroke="#2b323c"></rect>
+          <text x="555" y="110" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#c7cbc4">SFTP (bulk)</text>
+          <rect x="486" y="128" width="138" height="28" rx="3" fill="#1d232c" stroke="#2b323c"></rect>
+          <text x="555" y="146" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#c7cbc4">PostgreSQL</text>
+
+          <path d="M640,112 L700,112" stroke="#5fc3b6" stroke-width="1.5" marker-end="url(#arrow1)"></path>
+
+          <rect x="700" y="90" width="150" height="44" rx="3" fill="#161b22" stroke="#e8a33d" stroke-width="1.5"></rect>
+          <text x="775" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#eceee9">B.G.E.T. dashboard</text>
+          <text x="775" y="124" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b93a0">progress view</text>
+        </svg>
+      </div>
+      <p class="figcap">Original data flow: four capture sources feed a Python collection script, which pushes bulk files to SFTP and structured data to PostgreSQL — both running in one Docker container — for the dashboard to read from.</p>
+
+      <div class="case-body">
+        <h2>The problem</h2>
+        <p>This was a multi-year project for Applied Data Science &amp; AI students, and I was part of the first cohort — which meant there was nothing to inherit. No pipeline, no storage, no dashboard, and no working relationship yet with the coaches who'd eventually use it. The original brief was to build an AI coach that could give VALORANT players feedback on their performance.</p>
+        <p>Early on it became clear that an AI coach wasn't realistic in the time we had. Rather than force it and risk shipping nothing that worked, we scoped down to laying the groundwork the next cohorts would actually need: reliable data collection, sensible storage, and a dashboard that showed what had been captured so far.</p>
+
+        <h2>What I built</h2>
+        <p>We collected four modalities: keyboard and mouse input through a Python script, gaze data from a Tobii eye tracker, facial expressions through a webcam feed processed with OpenFace, and full match video through OBS.</p>
+        <p>For storage, I split the data by shape rather than forcing everything into one system: bulk files went to SFTP, and structured, queryable data went to PostgreSQL. To make sure this would actually run reliably on a server rather than on whoever's laptop was free, I put both services in a single Docker container, so the whole storage layer could be brought up the same way every time.</p>
+        <p>The last piece was tying it together: when a data collection session ends, the files are automatically uploaded to SFTP and the numeric data pushed to PostgreSQL, so the dashboard always has something current to read from without anyone touching it by hand.</p>
+
+        <h2>Outcome</h2>
+        <p>What shipped wasn't the AI coach the project was originally pitched as — it was the foundation that made an AI coach possible later: a working collection pipeline, a containerised storage layer, and a dashboard the next cohort could build analytics on top of instead of starting from a blank folder. That foundation is what I came back to build on top of during my graduation project, migrating this same toolkit to a properly automated deployment workflow.</p>
+      </div>
+
+      <div class="stack-block">
+        <h4>Stack</h4>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">Tobii eye tracker</span>
+          <span class="chip">OpenFace</span>
+          <span class="chip">OBS</span>
+          <span class="chip">Docker</span>
+          <span class="chip">SFTP</span>
+          <span class="chip">PostgreSQL</span>
+        </div>
+      </div>
+
+      <nav class="case-nav">
+        <a href="npec-root-vision.html">
+          <span class="dir">← Previous</span>
+          Segmenting plant roots for autonomous watering
+        </a>
+        <a class="next" href="stedin-green-gas.html">
+          <span class="dir">Next →</span>
+          Automating green gas quality reporting for Stedin
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <footer class="site-footer hairline">
+    <div class="wrap">
+      <div class="copyright">© 2026 Maikel Boezer</div>
+      <div class="footer-links">
+        <a href="https://github.com/maikelboezer" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../contact.html">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

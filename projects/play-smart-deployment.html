@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formalising Deployment for Play-Smart — Maikel Boezer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="brand">
+        <span class="dot"></span>
+        <span>
+          Maikel Boezer
+          <small>data engineering &amp; applied ai</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="../index.html#projects">Work</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="case-hero">
+    <div class="wrap-narrow">
+      <span class="crumb"><a href="../index.html#projects">Work</a> / Graduation project</span>
+      <h1>Formalising deployment for the Play-Smart esports analytics toolkit</h1>
+      <p class="dek">Migrating a multi-institutional analytics toolkit from manual USB deployment to a version-controlled, containerised GitHub workflow — and proving the migration was actually an improvement.</p>
+
+      <div class="meta-strip">
+        <div class="meta-item"><span class="k">Role</span><span class="v">Research Manager &amp; DevOps Lead</span></div>
+        <div class="meta-item"><span class="k">Organisation</span><span class="v">The Hive, Breda Guardians (BUas)</span></div>
+        <div class="meta-item"><span class="k">Partners</span><span class="v">Tilburg University and University of Twente</span></div>
+        <div class="meta-item"><span class="k">Period</span><span class="v">2026, graduation thesis</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap-narrow">
+      <div class="case-figure">
+        <img src="../images/playsmart-architecture.png" alt="Play-Smart deployment architecture: institutional GitHub forks push to GitHub Actions, which lints, builds and pushes container images to Docker Hub, then deploys to the self-hosted server and a GPU workstation running inference." />
+      </div>
+      <p class="figcap">The Play-Smart server architecture: a merge into the production branch triggers a pipeline that rebuilds only the changed service and redeploys it to the Hive server.</p>
+
+      <div class="case-body">
+        <h2>The problem</h2>
+        <p>Play-Smart is a multi-modal esports analytics toolkit built at The Hive for the Breda Guardians, capturing gaze, facial emotion, and keyboard/mouse data from semi-professional VALORANT players and surfacing it through a coaching dashboard. As more contributors and institutions joined — Tilburg University and the University of Twente — one thing hadn't kept pace: how the toolkit actually got onto a machine.</p>
+        <p>Deployment was still entirely manual. Files were carried between computers by USB, file paths were hard-coded, and the working environment was reconstructed by hand on every new machine. That's slow, hard to document accurately, and fragile — an environment that runs on one computer often fails on another. As the contributor base grew, this had become an obstacle in its own right, independent of how good the underlying analytics were.</p>
+
+        <h2>What I built</h2>
+        <p>The project came down to two things: designing a branching strategy that partner institutions could actually work with, and building an automated deployment pipeline behind it.</p>
+        <p>The branching strategy had to solve two problems at once — letting BUas, Tilburg and Twente work independently while BUas kept control over what merged back, and giving rotating student contributors enough structure to avoid serious mistakes without removing their ability to experiment. I combined a forking model between institutions with a hybrid Git-Flow / GitHub-Flow strategy inside each fork: short-lived feature branches merging into a shared <code>dev</code>, and a reviewed pull request into <code>main</code> at the end of each sprint.</p>
+        <p>On top of that, I containerised the toolkit into a five-container Docker stack — frontend, backend, data pipeline, inference and SFTP — and built a GitHub Actions pipeline that detects which service changed on a merge, rebuilds and publishes only that container, and a self-hosted runner deploys it to the Hive server automatically.</p>
+
+        <h2>Evaluating the migration</h2>
+        <p>A faster process that's harder to trust isn't a real improvement, so I didn't just ship the new workflow — I tested whether it actually was one. I ran a within-subjects usability study with four experienced project contributors, each of whom deployed the toolkit using both the old manual method and the new GitHub-based method, while I measured deployment time and captured their experience through a questionnaire built on the Technology Acceptance Model and the DORA and SPACE frameworks.</p>
+
+        <h2>Results</h2>
+        <p>The GitHub-based method was faster for every single participant — roughly 8 to 12 minutes, against 22 to 33 minutes manually — with most of the manual time lost to USB transfer problems rather than the toolkit setup itself. It was also rated easier to use, less mentally demanding, more reliable, and every participant said they'd choose to reuse it. The automated pipeline held up in production too, correctly rebuilding and redeploying only the containers that had actually changed.</p>
+        <p class="callout"><strong>The qualification:</strong> the sample was four experienced contributors, so this is a consistent result within the team rather than a statistically generalisable one — and it's a conservative estimate, since a first-time user stands to gain even more from a guided, version-controlled process than an expert does.</p>
+
+        <h2>Conclusion</h2>
+        <p>The study supports adopting the new version-controlled workflow as the standard way of deploying the toolkit going forward. I documented the remaining limitations — small sample size, testing only with experienced users, and some inconsistency in how one dependency gets distributed — as the concrete next steps for whoever picks this up after me.</p>
+      </div>
+
+      <div class="stack-block">
+        <h4>Stack</h4>
+        <div class="chip-row">
+          <span class="chip">Docker</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Self-hosted CI runner</span>
+          <span class="chip">Git branching strategy</span>
+          <span class="chip">Python</span>
+          <span class="chip">Technology Acceptance Model</span>
+          <span class="chip">DORA / SPACE frameworks</span>
+        </div>
+      </div>
+
+      <nav class="case-nav">
+        <a href="stedin-green-gas.html">
+          <span class="dir">← Previous</span>
+          Automating green gas quality reporting for Stedin
+        </a>
+        <a class="next" href="npec-root-vision.html">
+          <span class="dir">Next →</span>
+          Segmenting plant roots for autonomous watering
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <footer class="site-footer hairline">
+    <div class="wrap">
+      <div class="copyright">© 2026 Maikel Boezer</div>
+      <div class="footer-links">
+        <a href="https://github.com/maikelboezer" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../contact.html">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

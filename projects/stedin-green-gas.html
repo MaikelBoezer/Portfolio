@@ -14,7 +14,7 @@
         <span class="dot"></span>
         <span>
           Maikel Boezer
-          <small>data engineering &amp; applied ai</small>
+          <small>Data Engineer &amp; AI</small>
         </span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -90,15 +90,21 @@
 
       <div class="case-body">
         <h2>The problem</h2>
-        <p>Stedin's green gas department needed to know when gas quality drifted out of spec — oxygen, CO2, water dew point, pressure, hydrogen sulphide and Wobbe index — and at which of their 12 feeder locations. Before this project, they received a quality report every six months from a third party, and getting anything more current meant downloading and processing the data by hand, location by location, at 15 to 30 minutes each.</p>
+        <p>Stedin's green gas department needed to know when gas quality drifted out of spec - oxygen, CO2, water dew point, pressure, hydrogen sulphide and Wobbe index - and at which of their 12 feeder locations. Before this project, they received a quality report every six months from a third party, and getting anything more current meant downloading and processing the data by hand, location by location, at 15 to 30 minutes each.</p>
 
         <h2>What I built</h2>
-        <p>The core deliverable was a Power BI dashboard that flags any value that's out of bounds, for how long, and at which location — with a filter for sustained "problem" events, where a value stays out of bounds for three consecutive intervals while the valve is open.</p>
+        <p>The core deliverable was a Power BI dashboard that flags any value that's out of bounds, for how long, and at which location - with a filter for sustained "problem" events, where a value stays out of bounds for three consecutive intervals while the valve is open.</p>
         <p>Getting data onto that dashboard automatically was the harder half. The data provider, TeleControlNet, had an API, but it couldn't actually export data in a usable format, so I used robotic process automation in Python to mimic the manual download instead. I built that into a standalone executable that downloads, cleans, filters and exports the data straight into a SharePoint folder feeding the dashboard — so my supervisors could refresh the data themselves without touching any code.</p>
-        <p>Cleaning the data surfaced two real findings. One location measured pressure on a different reference standard than the rest of the network — not a fault, just an unlabelled inconsistency, resolved by adjusting the threshold for that location. Three other locations were missing over 90% of their hydrogen sulphide readings, traced back to a provider recording that value on a dynamic interval instead of the fixed one everything else used; in consultation with my supervisors I dropped that column for the affected locations rather than let unreliable data undermine the rest of the dataset.</p>
+
+        <div class="case-figure">
+          <img src="../images/auto_download.gif" alt="Dashboard demo">
+        </div>
+        <p class="figcap">The automated download process in action.</p>
+
+        <p>Cleaning the data surfaced two real findings. One location measured pressure on a different reference standard than the rest of the network - not a fault, just an unlabelled inconsistency, resolved by adjusting the threshold for that location. Three other locations were missing over 90% of their hydrogen sulphide readings, traced back to a provider recording that value on a dynamic interval instead of the fixed one everything else used; in consultation with my supervisors I dropped that column for the affected locations rather than let unreliable data undermine the rest of the dataset.</p>
 
         <h2>Outcome</h2>
-        <p>The dashboard replaced a 6-monthly external report with a self-service view the department could refresh whenever they needed it, and it was well received when presented to other Dutch gas providers, several of whom were still building the same Wobbe index visual by hand in Excel. I also documented the automation's limitations clearly — it depends on a workaround for a broken API, and there's no alerting yet when a column gets silently dropped — as the concrete next steps for whoever picks this up.</p>
+        <p>The dashboard replaced a 6-monthly external report with a self-service view the department could refresh whenever they needed it, and it was well received when presented to other Dutch gas providers, several of whom were still building the same Wobbe index visual by hand in Excel. I also documented the automation's limitations clearly - it depends on a workaround for a broken API, and there's no alerting yet when a column gets silently dropped - as the concrete next steps for whoever picks this up.</p>
       </div>
 
       <div class="stack-block">
